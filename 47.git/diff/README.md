@@ -35,13 +35,21 @@ int main() {
 ```
 
 두 hello.c파일을 비교할 때, diff라는 툴을 사용합니다.
+
 ```
-~/foss-comics-code/47.git$ diff hello_v1 hello_v2
-diff hello_v1/hello.c hello_v2/hello.c
-7c7
-<     printf("Hello World");
----
->     printf("Hello World\n");
+~/foss-comics-code/47.git/diff$ diff -u hello_v1 hello_v2
+diff -u hello_v1/hello.c hello_v2/hello.c
+--- hello_v1/hello.c	2022-09-05 18:37:24.894542803 -0700
++++ hello_v2/hello.c	2022-09-05 18:38:58.740332080 -0700
+@@ -4,7 +4,7 @@
+   
+ int main() {
+ 
+-    printf("Hello World");
++    printf("Hello World\n");
+   
+     return 0;
+ }
 ```
 
 위와 같이 두 파일을 차이를 쉽게 볼 수 있습니다. 자, 이제 이를 파일로 만들어서 hello.c를 만든 사람에 전달해봅시다.
