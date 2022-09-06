@@ -28,7 +28,7 @@ int main() {
   
 int main() {
 
-    printf("Hello World %s\n");
+    printf("Hello World\n");
   
     return 0;
 }
@@ -41,13 +41,13 @@ diff hello_v1/hello.c hello_v2/hello.c
 7c7
 <     printf("Hello World");
 ---
->     printf("Hello World %s\n");
+>     printf("Hello World\n");
 ```
 
 위와 같이 두 파일을 차이를 쉽게 볼 수 있습니다. 자, 이제 이를 파일로 만들어서 hello.c를 만든 사람에 전달해봅시다.
 ```
-~/my-git/foss-comics-code/47.git/diff$ diff -u hello_v1 hello_v2 > diff.patch
-~/my-git/foss-comics-code/47.git/diff$ cat diff.patch 
+~/foss-comics-code/47.git/diff$ diff -u hello_v1 hello_v2 > diff.patch
+~/foss-comics-code/47.git/diff$ cat diff.patch 
 diff -u hello_v1/hello.c hello_v2/hello.c
 --- hello_v1/hello.c	2022-09-05 17:25:53.992894733 -0700
 +++ hello_v2/hello.c	2022-09-05 17:27:51.091147715 -0700
@@ -56,7 +56,7 @@ diff -u hello_v1/hello.c hello_v2/hello.c
  int main() {
  
 -    printf("Hello World");
-+    printf("Hello World %s\n");
++    printf("Hello World\n");
    
      return 0;
  }
@@ -65,15 +65,15 @@ diff -u hello_v1/hello.c hello_v2/hello.c
 Diff.patch라는 파일이 만들어졌습니다. 이제 이를 hello_v1/hello.c에 적용해봅니다.
 
 ```
-~/my-git/foss-comics-code/47.git/diff$ patch -d hello_v1/ -p1 < diff.patch 
+~/foss-comics-code/47.git/diff$ patch -d hello_v1/ -p1 < diff.patch 
 patching file hello.c
 ```
 
 이렇게 하면 hello_v1/hello.c와 hello_v2/hello.c이 같아야 합니다. 확인해보겠습니다.
 
 ```
-joone@cube:~/my-git/foss-comics-code/47.git/diff$ diff -u hello_v1 hello_v2
-joone@cube:~/my-git/foss-comics-code/47.git/diff$ 
+~/foss-comics-code/47.git/diff$ diff -u hello_v1 hello_v2
+~/foss-comics-code/47.git/diff$ 
 ```
 
 Diff명령어 결과가 없는 것으로 보아 두 파일이 같다는 것을 알 수 있습니다.
